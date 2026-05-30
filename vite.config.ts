@@ -7,7 +7,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-    nitro: {
-      preset: "cloudflare-pages"
-    }
+    ssr: {
+        external: ["@prisma/client"], // Se você estiver usando banco de dados
+      },
+      define: {
+        "process.env": process.env,
+      }
   });
